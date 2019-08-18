@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	togo
-DISTVERSION=	0.2
+DISTVERSION=	0.2.1
 CATEGORIES=	sysutils
 MASTER_SITES=	https://gitlab.com/nihilism/togo/
 
@@ -15,7 +15,7 @@ BUILD_DEPENDS=	go:lang/go
 USE_GITLAB=	yes
 
 GL_ACCOUNT=	nihilism
-GL_COMMIT=	4fba93cd58674f5a5cc1935410420e89f1cee2b1
+GL_COMMIT=	e96a6a94c7ef86da34b311fe7ef170682abd8142
 
 PLIST_FILES=	bin/togo
 
