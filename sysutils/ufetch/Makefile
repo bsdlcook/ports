@@ -1,9 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	ufetch
-DISTVERSION=	1.0
+DISTVERSION=	0.1-1
 CATEGORIES=	sysutils
-MASTER_SITES=	https://gitlab.com/jschx/ufetch/
 
 MAINTAINER=	vulcan@wired.sh
 COMMENT=	Tiny system info for Unix-like operating systems
@@ -25,6 +24,7 @@ post-patch:
 	${REINPLACE_CMD} -e 's/-freebsd//g' ${WRKSRC}/ufetch-freebsd
 
 do-install:
-	${INSTALL_SCRIPT} ${WRKSRC}/${PORTNAME}-freebsd ${STAGEDIR}${PREFIX}/bin/${PORTNAME}
+	${INSTALL_SCRIPT} ${WRKSRC}/${PORTNAME}-freebsd \
+		${STAGEDIR}${PREFIX}/bin/${PORTNAME}
 
 .include <bsd.port.mk>
