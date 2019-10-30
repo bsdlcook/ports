@@ -1,0 +1,11 @@
+TIMESTAMP = 1572448675
+SHA256 (golang-sys-a9d3bda3a223_GH0.tar.gz) = feb0060f04359659699f8419f598069c4f50d5618afbb9c48fd5458589b994f7
+SIZE (golang-sys-a9d3bda3a223_GH0.tar.gz) = 1243362
+SHA256 (mattn-go-colorable-v0.1.2_GH0.tar.gz) = a7189bd9005c571303b117261955ce53b0e2aa89fe415e2289659be343fe1651
+SIZE (mattn-go-colorable-v0.1.2_GH0.tar.gz) = 8518
+SHA256 (mattn-go-isatty-v0.0.8_GH0.tar.gz) = 4f40edb394582f49ac6330bc807be93018216ef485eb65f00adcf61b670d4f3e
+SIZE (mattn-go-isatty-v0.0.8_GH0.tar.gz) = 3564
+SHA256 (mgutz-ansi-9520e82c474b_GH0.tar.gz) = f9203c71aceb8b7ffa87181fd8f51dc69acce3d2161c4c017ea92c6840f85093
+SIZE (mgutz-ansi-9520e82c474b_GH0.tar.gz) = 4876
+SHA256 (nihilism-togo-a5c92568bc118170388c09e3331222f0d4e9c23a_GL0.tar.gz) = 8c5d14106dab075c509fe1668072054d90e43d3111430f579bd4d7260f864e84
+SIZE (nihilism-togo-a5c92568bc118170388c09e3331222f0d4e9c23a_GL0.tar.gz) = 3745
