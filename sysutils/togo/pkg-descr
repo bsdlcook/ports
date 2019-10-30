@@ -1,8 +1,0 @@
-togo is a command-line utility to easily
-review source code annotations, provided
-with the following gramatical syntax for
-comments: "@Label: Context.", all of the
-annotations will be presented to the
-user for review.
-
-WWW: https://gitlab.com/nihilism/togo/
