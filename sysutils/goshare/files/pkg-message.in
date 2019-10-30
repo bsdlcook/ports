@@ -1,0 +1,15 @@
+[
+{ type: install
+  message: <<EOM
+goshare was successfully installed.
+
+Example configuration:
+======================
+
+Copy the example configuration to your home directory:
+
+mkdir -p ~/.config/goshare # Create the config directory if non-existent
+cp %%EXAMPLESDIR%%/settings.json ~/.config/goshare
+EOM
+}
+]
