@@ -13,7 +13,8 @@ LICENSE_FILE=	${WRKSRC}/LICENSE
 
 RUN_DEPENDS=	${PYTHON_PKGNAMEPREFIX}ansible>0:sysutils/ansible@${PY_FLAVOR}
 
-USES=		python
+USES=		python shebangfix
+SHEBANG_FILES=	library/kld
 
 USE_GITHUB=	yes
 GH_ACCOUNT=	dlundgren
@@ -23,12 +24,13 @@ GH_TAGNAME=	cf37fc1e16fc03852abc8933e7959b22b51a5c90
 NO_ARCH=	yes
 NO_BUILD=	yes
 
-ANSIBLE_MOD=	$$(ansible-config-${PYTHON_VER} dump | ${EGREP} -o '${PREFIX}/share/${PYTHON_PKGNAMEPREFIX}ansible/plugins/modules')
+ANSIBLE_MOD=	share/${PYTHON_PKGNAMEPREFIX}ansible/plugins/modules
 
-PLIST_FILES=	$$(${ECHO_CMD} ${ANSIBLE_MOD} | ${SED} -e 's|${PREFIX}/||')/kld
+PLIST_FILES=	${ANSIBLE_MOD}/kld
 
 do-install:
-	${MKDIR} ${STAGEDIR}${ANSIBLE_MOD}
-	${INSTALL_SCRIPT} ${WRKSRC}/library/kld ${STAGEDIR}${ANSIBLE_MOD}/kld
+	${MKDIR} ${STAGEDIR}${PREFIX}/${ANSIBLE_MOD}
+	${INSTALL_SCRIPT} ${WRKSRC}/library/kld \
+		${STAGEDIR}${PREFIX}/${ANSIBLE_MOD}/kld
 
 .include <bsd.port.mk>
