@@ -1,4 +1,4 @@
-TIMESTAMP = 1572447412
+TIMESTAMP = 1573672620
 SHA256 (atotto-clipboard-v0.1.2_GH0.tar.gz) = 84704a60eb4de90eaebe6e8cbfab30bb53d103c26c25560d67d13469fd17934e
 SIZE (atotto-clipboard-v0.1.2_GH0.tar.gz) = 4478
 SHA256 (golang-crypto-9756ffdc2472_GH0.tar.gz) = 6af409930c3a9313b33f9b8da1a2c24da8ffa07c4fcd55356a77a2f09a0d6326
@@ -13,5 +13,5 @@ SHA256 (pkg-errors-v0.8.1_GH0.tar.gz) = 7a428967c6fc2e80cd84a0d9469ab6bd4dbe6b13
 SIZE (pkg-errors-v0.8.1_GH0.tar.gz) = 11009
 SHA256 (pkg-sftp-v1.10.1_GH0.tar.gz) = 4624e4e22d4daee403ff90f084b741942336f3ed24325083037ebaffd03ddbc2
 SIZE (pkg-sftp-v1.10.1_GH0.tar.gz) = 71378
-SHA256 (nihilism-goshare-308f73934318176baf8b74d0a7bd0fb66a540af6_GL0.tar.gz) = c877cb899ac2345b15abebdeeaf167590a2dff3f5b4bdd3ea6a222b7199a6752
-SIZE (nihilism-goshare-308f73934318176baf8b74d0a7bd0fb66a540af6_GL0.tar.gz) = 4700
+SHA256 (lcook-goshare-871ffcd628325e80da1f81e8d86790c870fb8afd_GL0.tar.gz) = 55f59b86f9bbb237823c507843ec90fe4097084c95f507811e575baa314c70ed
+SIZE (lcook-goshare-871ffcd628325e80da1f81e8d86790c870fb8afd_GL0.tar.gz) = 4753

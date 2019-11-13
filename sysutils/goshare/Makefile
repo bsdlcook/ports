@@ -1,7 +1,8 @@
 # $FreeBSD$
 
 PORTNAME=	goshare
-DISTVERSION=	0.2
+DISTVERSIONPREFIX=	v
+DISTVERSION=	0.3
 CATEGORIES=	sysutils
 
 MAINTAINER=	vulcan@wired.sh
@@ -16,8 +17,8 @@ RUN_DEPENDS=	maim:graphics/maim \
 USES=		go:modules
 
 USE_GITLAB=	yes
-GL_ACCOUNT=	nihilism
-GL_COMMIT=	308f73934318176baf8b74d0a7bd0fb66a540af6
+GL_ACCOUNT=	lcook
+GL_COMMIT=	871ffcd628325e80da1f81e8d86790c870fb8afd
 
 USE_GITHUB=	nodefault
 GH_TUPLE=	atotto:clipboard:v0.1.2:atotto_clipboard/vendor/github.com/atotto/clipboard \
