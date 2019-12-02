@@ -1,4 +1,4 @@
-# $FreeBSD: head/audio/spotify-tui/Makefile 518866 2019-12-02 19:29:49Z swills $
+# $FreeBSD$
 
 PORTNAME=	spotify-tui
 DISTVERSIONPREFIX=	v
