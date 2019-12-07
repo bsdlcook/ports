@@ -8,7 +8,7 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 - [6cord](https://www.freshports.org/net-im/6cord/).
 
 #### audio
-- [somafm-cli](https://www.freshports.org/audio/somafm-cli/).
+- [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
 
 There's also a small collection of personal ports, not merged into the tree and for my own usage, which can be found on the [adhoc branch](https://gitlab.com/lcook/ports/tree/adhoc).
 
