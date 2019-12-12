@@ -11,7 +11,7 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../LICENSE
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig
-RUN_DEPENDS=	iosevka:x11-fonts/iosevka
+RUN_DEPENDS=	iosevka>0:x11-fonts/iosevka
 
 USES=		xorg
 
