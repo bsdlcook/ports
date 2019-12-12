@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	zen-dmenu
-DISTVERSION=	6.2
+DISTVERSION=	4.9
 CATEGORIES=	x11
 
 MAINTAINER=	vulcan@wired.sh
