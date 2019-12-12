@@ -20,7 +20,7 @@ GL_ACCOUNT=	lcook
 GL_PROJECT=	freebsd
 GL_COMMIT=	eabd03f929b8d24b832d28c77498390dffea1793
 
-USE_XORG=	x11 xft
+USE_XORG=	x11 xft xinerama
 
 CONFLICTS=	dwm*
 
