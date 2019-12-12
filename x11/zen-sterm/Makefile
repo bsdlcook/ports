@@ -19,7 +19,7 @@ USES=		pkgconfig xorg
 USE_GITLAB=	yes
 GL_ACCOUNT=	lcook
 GL_PROJECT=	freebsd
-GL_COMMIT=	2ab778ece27a781a5d2d9198e5b4611067880b73
+GL_COMMIT=	eabd03f929b8d24b832d28c77498390dffea1793	
 
 USE_XORG=	x11 xext xft
 
