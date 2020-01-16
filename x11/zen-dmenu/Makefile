@@ -11,14 +11,14 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../LICENSE
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig
-RUN_DEPENDS=	iosevka>0:x11-fonts/iosevka
+RUN_DEPENDS=	victor-mono-ttf>0:x11-fonts/victor-mono-ttf
 
 USES=		xorg
 
 USE_GITLAB=	yes
 GL_ACCOUNT=	lcook
 GL_PROJECT=	freebsd
-GL_COMMIT=	d436e93d9541922c1a44ef10cca1daae32dbfc87
+GL_COMMIT=	2b26b13f8577c301378ad9a139dad9681cd8b2bb
 
 USE_XORG=	x11 xft xinerama
 
