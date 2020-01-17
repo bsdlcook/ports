@@ -26,7 +26,10 @@ CONFLICTS=	dmenu*
 
 WRKSRC_SUBDIR=	dmenu
 
-PLIST_FILES=	bin/dmenu
+PLIST_FILES=	bin/dmenu \
+		bin/dmenu_path \
+		bin/dmenu_run \
+		bin/stest
 
 post-install:
 	${STRIP_CMD} ${STAGEDIR}${PREFIX}/bin/dmenu
