@@ -5,6 +5,9 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 #### audio
 - [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
 
+### misc
+- [broot](https://www.freshports.org/misc/broot/).
+
 #### net-im
 - [6cord](https://www.freshports.org/net-im/6cord/).
 
