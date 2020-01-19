@@ -11,8 +11,11 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 #### net-im
 - [6cord](https://www.freshports.org/net-im/6cord/).
 
+### security
+- [horcrux](https://www.freshports.org/security/horcrux/).
+
 #### sysutils
-- [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow).
+- [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/).
 
 ### x11-fonts
 - [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
