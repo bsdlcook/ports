@@ -8,6 +8,9 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 ### devel/
 - [gh](https://www.freshports.org/devel/gh/).
 
+### graphics/
+- [pastel](https://www.freshports.org/graphics/pastel/).
+
 ### misc/
 - [broot](https://www.freshports.org/misc/broot/).
 
