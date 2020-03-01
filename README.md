@@ -21,7 +21,7 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 - [horcrux](https://www.freshports.org/security/horcrux/).
 
 #### sysutils/
-- [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/).
+- [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/), [dua-cli](https://www.freshports.org/sysutils/dua-cli/).
 
 ### x11-fonts/
 - [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
