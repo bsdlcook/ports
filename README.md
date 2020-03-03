@@ -14,6 +14,9 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 ### misc/
 - [broot](https://www.freshports.org/misc/broot/).
 
+### net/
+- [findomain](https://www.freshports.org/net/findomain/).
+
 #### net-im/
 - [6cord](https://www.freshports.org/net-im/6cord/).
 
