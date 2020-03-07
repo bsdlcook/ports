@@ -2,7 +2,7 @@
 
 The ports categorized by group below have been merged into the FreeBSD ports tree, and are currently being maintained by me. If you have any issues/errors/improvements either create a merge request/issue/whatever is relevant to the problem or submit a [bug report](https://bugs.freebsd.org/bugzilla/), alternatively shoot an email to vulcan[at]wired[dot]sh.
 
-#### audio/
+### audio/
 - [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
 
 ### devel/
@@ -17,14 +17,17 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 ### net/
 - [findomain](https://www.freshports.org/net/findomain/).
 
-#### net-im/
+### net-im/
 - [6cord](https://www.freshports.org/net-im/6cord/).
 
 ### security/
 - [horcrux](https://www.freshports.org/security/horcrux/).
 
-#### sysutils/
+### sysutils/
 - [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/), [dua-cli](https://www.freshports.org/sysutils/dua-cli/).
+
+### textproc/
+- [jtc](https://www.freshports.org/textproc/jtc/).
 
 ### x11-fonts/
 - [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
