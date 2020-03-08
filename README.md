@@ -5,14 +5,23 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 ### Categories
 
 **audio**: [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
+
 **devel**: [gh](https://www.freshports.org/devel/gh/).
+
 **graphics**: [pastel](https://www.freshports.org/graphics/pastel/).
+
 **misc**: [broot](https://www.freshports.org/misc/broot/).
+
 **net**: [findomain](https://www.freshports.org/net/findomain/).
+
 **net-im**: [6cord](https://www.freshports.org/net-im/6cord/).
+
 **security**: [horcrux](https://www.freshports.org/security/horcrux/).
+
 **sysutils**: [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/), [dua-cli](https://www.freshports.org/sysutils/dua-cli/).
+
 **textproc**: [jtc](https://www.freshports.org/textproc/jtc/), [csvq](https://www.freshports.org/textproc/csvq/).
+
 **x11-fonts**: [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
 
 ### Adhoc ports
