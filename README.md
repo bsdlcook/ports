@@ -27,7 +27,7 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 - [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/), [dua-cli](https://www.freshports.org/sysutils/dua-cli/).
 
 ### textproc/
-- [jtc](https://www.freshports.org/textproc/jtc/).
+- [jtc](https://www.freshports.org/textproc/jtc/), [csvq](https://www.freshports.org/textproc/csvq/).
 
 ### x11-fonts/
 - [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
