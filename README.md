@@ -22,7 +22,7 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 
 **textproc**: [jtc](https://www.freshports.org/textproc/jtc/), [csvq](https://www.freshports.org/textproc/csvq/).
 
-**x11-fonts**: [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/).
+**x11-fonts**: [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/), [anomaly-mono](https://www.freshports.org/x11-fonts/anomaly-mono/).
 
 ### Adhoc ports
 
