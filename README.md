@@ -10,6 +10,8 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 
 **graphics**: [pastel](https://www.freshports.org/graphics/pastel/).
 
+**irc**: [birch](https://www.freshports.org/irc/birch/).
+
 **misc**: [broot](https://www.freshports.org/misc/broot/).
 
 **net**: [findomain](https://www.freshports.org/net/findomain/).
