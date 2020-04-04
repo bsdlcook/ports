@@ -6,7 +6,7 @@ The ports categorized by group below have been merged into the FreeBSD ports tre
 
 **audio**: [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
 
-**devel**: [gh](https://www.freshports.org/devel/gh/), [revive](https://www.freshports.org/devel/revive/).
+**devel**: [gh](https://www.freshports.org/devel/gh/), [revive](https://www.freshports.org/devel/revive/), [sentry-cli](https://www.freshports.org/devel/sentry-cli/).
 
 **graphics**: [pastel](https://www.freshports.org/graphics/pastel/).
 
