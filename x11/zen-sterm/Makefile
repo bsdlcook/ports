@@ -12,14 +12,14 @@ LICENSE_FILE=	${WRKSRC}/../LICENSE
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
 		libfreetype.so:print/freetype2
-RUN_DEENDS=	victor-mono-ttf:x11-fonts/victor-mono-ttf
+RUN_DEPENDS=	iosevka:x11-fonts/iosevka
 
 USES=		pkgconfig xorg
 
 USE_GITLAB=	yes
 GL_ACCOUNT=	lcook
 GL_PROJECT=	freebsd
-GL_COMMIT=	f70ab2780a22196ec8221349e5babc6d44762b10
+GL_COMMIT=	cf03cc5394fcb584752c8db67b1cffc0cd9486bb
 USE_XORG=	x11 xext xft
 
 CONFLICTS=	sterm*
