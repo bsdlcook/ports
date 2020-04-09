@@ -18,7 +18,7 @@ USES=		xorg
 USE_GITLAB=	yes
 GL_ACCOUNT=	lcook
 GL_PROJECT=	freebsd
-GL_COMMIT=	cf03cc5394fcb584752c8db67b1cffc0cd9486bb
+GL_COMMIT=	a961b2036022ca5d578dd53a3d9fb2b49dcf1a19
 
 USE_XORG=	x11 xft xinerama
 
