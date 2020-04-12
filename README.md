@@ -1,30 +1,6 @@
 ## Maintained FreeBSD ports collection
 
-The ports categorized by group below have been merged into the FreeBSD ports tree, and are currently being maintained by me. If you have any issues/errors/improvements either create a merge request/issue/whatever is relevant to the problem or submit a [bug report](https://bugs.freebsd.org/bugzilla/), alternatively shoot an email to [vulcan@wired.sh](mailto:vulcan@wired.sh). For a more detailed breakdown visit my [repology](https://repology.org/maintainer/vulcan%40wired.sh) page.
-
-### Categories
-
-**audio**: [somafm-cli](https://www.freshports.org/audio/somafm-cli/), [spotify-tui](https://www.freshports.org/audio/spotify-tui/).
-
-**devel**: [gh](https://www.freshports.org/devel/gh/), [revive](https://www.freshports.org/devel/revive/), [sentry-cli](https://www.freshports.org/devel/sentry-cli/).
-
-**graphics**: [pastel](https://www.freshports.org/graphics/pastel/).
-
-**irc**: [birch](https://www.freshports.org/irc/birch/).
-
-**misc**: [broot](https://www.freshports.org/misc/broot/).
-
-**net**: [findomain](https://www.freshports.org/net/findomain/).
-
-**net-im**: [6cord](https://www.freshports.org/net-im/6cord/).
-
-**security**: [horcrux](https://www.freshports.org/security/horcrux/).
-
-**sysutils**: [ufetch](https://www.freshports.org/sysutils/ufetch/), [pfetch](https://www.freshports.org/sysutils/pfetch/), [ansible-sysrc](https://www.freshports.org/sysutils/ansible-sysrc/), [glow](https://www.freshports.org/sysutils/glow/), [tealdeer](https://www.freshports.org/sysutils/tealdeer/), [dua-cli](https://www.freshports.org/sysutils/dua-cli/), [fselect](https://www.freshports.org/sysutils/fselect/), [rsfetch](http://freshports.org/sysutils/rsfetch/).
-
-**textproc**: [jtc](https://www.freshports.org/textproc/jtc/), [csvq](https://www.freshports.org/textproc/csvq/).
-
-**x11-fonts**: [victor-mono-ttf](https://www.freshports.org/x11-fonts/victor-mono-ttf/), [anomaly-mono](https://www.freshports.org/x11-fonts/anomaly-mono/).
+The ports categorized by group in this repository have been merged into the FreeBSD ports tree, and are currently being maintained by me. If you have any issues/errors/improvements either create a merge request/issue/whatever is relevant to the problem or submit a [bug report](https://bugs.freebsd.org/bugzilla/), alternatively shoot an email to [vulcan@wired.sh](mailto:vulcan@wired.sh). For a more detailed breakdown visit my [repology](https://repology.org/maintainer/vulcan%40wired.sh) page.
 
 ### Adhoc ports
 
