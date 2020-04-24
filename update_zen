@@ -1,0 +1,15 @@
+#!/bin/sh
+
+commit=$1
+
+if [ -z "${commit}" ]; then
+	echo "usage: update_zen [commit]"
+	exit 0
+fi
+
+ports=$(find x11*/zen-*/Makefile -type f -depth 0 -print)
+
+echo ${ports} | xargs -n1 \
+	sed -i "" -E -e "s|(GH\|GL)_(TAGNAME\|COMMIT)=.*|\1_\2=	${commit}|"
+
+echo ${ports} | sed -e "s|/Makefile||g" | xargs -n1 make makesum -C
