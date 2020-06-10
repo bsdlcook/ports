@@ -1,0 +1,49 @@
+#!/bin/sh
+
+REPOLOGY_BASE="https://repology.org"
+REPOLOGY_API_VERSION=1
+REPOLOGY_API="${REPOLOGY_BASE}/api/v${REPOLOGY_API_VERSION}"
+REPOLOGY_PROJECT="${REPOLOGY_API}/project"
+
+get_local_version() {
+	grep -E "^(DIST)?VERSION=.*$" "$1/Makefile" | awk '{print $2}'
+}
+
+get_remote_version() {
+	name="$1"
+
+	case "${name}" in
+		ansible-sysrc) name=python:ansible-sysrc ;;
+		gh) name=github-cli ;;
+		py-jc) name=python:jc ;;
+		tut) name=tut-mastodon-client ;;
+	esac
+
+	fetch -qo - "${REPOLOGY_PROJECT}/${name}" | jq -r '.[] | select(.repo == "freebsd") | .version'
+}
+
+COUNTER=0
+UPTODATE=0
+OUTDATED=0
+
+clear && echo "=== Checking local port versions with remote ==="
+for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
+	name=$(echo "${port}" | cut -d/ -f 2)
+	local_version=$(get_local_version "${port}")
+	remote_version=$(get_remote_version "${name}")
+
+	check=$(pkg version -t "${local_version}" "${remote_version}")
+	case "${check}" in
+		"=")
+			echo -e "[${check}] \e[32m${port} is up-to-date\e[0m"
+			UPTODATE=$((UPTODATE + 1))
+			;;
+		"<")
+			echo -e "[${check}] \e[33m${port} ${local_version} is outdated by ${remote_version}\e[0m"
+			OUTDATED=$((OUTDATED + 1))
+			;;
+	esac
+
+	COUNTER=$((COUNTER + 1))
+done
+echo "=== Finished checking ${COUNTER} port version(s), OK: ${UPTODATE}, OUTDATED: ${OUTDATED} ==="
