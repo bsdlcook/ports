@@ -1,0 +1,7 @@
+#!/bin/sh
+
+for port in $(cat - | xargs -n1); do
+	name=$(echo "${port}" | cut -d/ -f 2)
+	category=$(echo "${port}" | cut -d/ -f 1)
+	yes y | glport -u -p "${name}" -c "${category}"
+done

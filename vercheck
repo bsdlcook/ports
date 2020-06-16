@@ -1,5 +1,18 @@
 #!/bin/sh
 
+print_ports=false
+while getopts ":p" opts; do
+	case "${opts}" in
+		p) print_ports=true ;;
+	esac
+done
+
+echo_msg() {
+	if [ "${print_ports}" = false ]; then
+		echo -e "$*"
+	fi
+}
+
 readonly REPOLOGY_BASE="https://repology.org"
 readonly REPOLOGY_API_VERSION=1
 readonly REPOLOGY_API="${REPOLOGY_BASE}/api/v${REPOLOGY_API_VERSION}"
@@ -22,12 +35,13 @@ get_remote_version() {
 	fetch -qo - "${REPOLOGY_PROJECT}/${name}" | jq -r '.[] | select(.repo == "freebsd") | .version'
 }
 
+PORTS=
 COUNTER=0
 UPTODATE=0
 AHEAD=0
 OUTDATED=0
 
-clear && echo "===> Checking local git port version(s) with repology"
+echo_msg "===> Checking local git port version(s) with repology"
 for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
 	name=$(echo "${port}" | cut -d/ -f 2)
 	local_version=$(get_local_version "${port}")
@@ -36,19 +50,24 @@ for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | s
 	check=$(pkg version -t "${local_version}" "${remote_version}")
 	case "${check}" in
 		"=")
-			echo -e "==> \e[32m${port} is up-to-date\e[0m"
+			echo_msg "=>> \e[32m${port} is up-to-date\e[0m"
 			UPTODATE=$((UPTODATE + 1))
 			;;
 		"<")
-			echo -e "==> \e[33m${port} ${local_version} is outdated by ${remote_version}\e[0m"
+			echo_msg "=>> \e[33m${port} ${local_version} is outdated by ${remote_version}\e[0m"
 			OUTDATED=$((OUTDATED + 1))
+			PORTS="${PORTS} ${port}"
 			;;
 		">")
-			echo -e "==> \e[36m${port} ${local_version} is ahead of ${remote_version}\e[0m"
+			echo_msg "=>> \e[36m${port} ${local_version} is ahead of ${remote_version}\e[0m"
 			AHEAD=$((AHEAD + 1))
 			;;
 	esac
 
 	COUNTER=$((COUNTER + 1))
 done
-echo "===> Finished checking ${COUNTER} port version(s), OK: ${UPTODATE}, AHEAD: ${AHEAD}, OUTDATED: ${OUTDATED}"
+echo_msg "===> Finished checking ${COUNTER} port version(s), OK: ${UPTODATE}, AHEAD: ${AHEAD}, OUTDATED: ${OUTDATED}"
+
+if [ "${print_ports}" = true ]; then
+	echo "${PORTS}"
+fi
