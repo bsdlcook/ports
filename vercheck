@@ -29,6 +29,7 @@ get_remote_version() {
 		ansible-sysrc) name=python:ansible-sysrc ;;
 		gh) name=github-cli ;;
 		py-jc) name=python:jc ;;
+		py-tuir) name=python:tuir ;;
 		tut) name=tut-mastodon-client ;;
 	esac
 
