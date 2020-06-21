@@ -1,7 +1,14 @@
 #!/bin/sh
 
-for port in $(cat - | xargs -n1); do
-	name=$(echo "${port}" | cut -d/ -f 2)
-	category=$(echo "${port}" | cut -d/ -f 1)
-	yes y | glport -u -p "${name}" -c "${category}"
-done
+PORT_LIST=$(cat - | xargs -n1)
+if [ "$PORT_LIST" ]; then
+	for port in $PORT_LIST; do
+		port_name=$(echo "$port" | cut -d/ -f 2)
+		port_category=$(echo "$port" | cut -d/ -f 1)
+		yes | glport -u -p "$port_name" -c "$port_category"
+	done
+else
+	cat << EOF
+usage: $(basename $0) [ports]
+EOF
+fi
