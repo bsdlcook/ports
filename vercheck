@@ -84,16 +84,16 @@ display_port_versions() {
 		port_check=`pkg version -t "$port_local_version" "$port_remote_version"`
 		
 		case "$port_check" in
-			"=")
+			=)
 				echo_msg "=>> \e[32m$port is up-to-date\e[0m"
 				PORTS_UPTODATE=$((PORTS_UPTODATE+1))
 				;;
-			"<")
+			<)
 				echo_msg "=>> \e[33m$port $port_local_version is outdated by $port_remote_version\e[0m"
 				PORTS_OUTDATED=$((PORTS_OUTDATED+1))
 				PORTS="$PORTS $port"
 				;;
-			">")
+			>)
 				echo_msg "=>> \e[36m$port $port_local_version is ahead of $port_remote_version\e[0m"
 				PORTS_AHEAD=$((PORTS_AHEAD+1))
 				;;
