@@ -66,16 +66,13 @@ get_remote_version() {
 	fetch -qo - "$REPOLOGY_PROJECT/$name" | jq -r '.[] | select(.repo == "freebsd") | .version'
 }
 
-PORTS=
-PORTS_COUNTER=0
-PORTS_UPTODATE=0
-PORTS_AHEAD=0
-PORTS_OUTDATED=0
-
+PORT_LIST=
 #
 # Print port version status, as compared with latest on repology
 #
 display_port_versions() {
+	local counter=0 uptodate=0 ahead=0 outdated=0
+
 	echo_msg "===> Checking local git port version(s) with repology"
 	for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
 		port_name=`echo "$port" | cut -d/ -f 2`
@@ -86,26 +83,26 @@ display_port_versions() {
 		case "$port_check" in
 			=)
 				echo_msg "=>> \e[32m$port is up-to-date\e[0m"
-				PORTS_UPTODATE=$((PORTS_UPTODATE+1))
+				uptodate=$((uptodate+1))
 				;;
 			<)
 				echo_msg "=>> \e[33m$port $port_local_version is outdated by $port_remote_version\e[0m"
-				PORTS_OUTDATED=$((PORTS_OUTDATED+1))
-				PORTS="$PORTS $port"
+				oudated=$((outdated+1))
+				PORT_LIST="$PORTS_LIST $port"
 				;;
 			>)
 				echo_msg "=>> \e[36m$port $port_local_version is ahead of $port_remote_version\e[0m"
-				PORTS_AHEAD=$((PORTS_AHEAD+1))
+				ahead=$((ahead+1))
 				;;
 		esac
 
-		PORTS_COUNTER=$((PORTS_COUNTER+1))
+		counter=$((counter+1))
 	done
-	echo_msg "===> Finished checking $PORTS_COUNTER port version(s), OK: $PORTS_UPTODATE, AHEAD: $PORTS_AHEAD, OUTDATED: $PORTS_OUTDATED"
+	echo_msg "===> Finished checking $counter port version(s), OK: $uptodate, AHEAD: $ahead, OUTDATED: $outdated"
 }
 
 display_port_versions
 
 if [ "$SHOW_OUTDATED_PORTS" ]; then
-	echo "$PORTS"
+	echo "$PORT_LIST"
 fi
