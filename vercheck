@@ -1,8 +1,8 @@
 #!/bin/sh
 
 usage() {
-	cat <<EOF
-usage: `basename $0` [options]
+	cat << EOF
+usage: $(basename $0) [options]
 
 Options:
   -p		-- Show only outdated ports
@@ -29,7 +29,7 @@ SHOW_OUTDATED_PORTS=
 while getopts :p flag; do
 	case "$flag" in
 		p) SHOW_OUTDATED_PORTS=1 ;;
-		h|\?) usage ;;
+		h | \?) usage ;;
 	esac
 done
 
@@ -58,7 +58,7 @@ get_remote_version() {
 	case "$name" in
 		ansible-sysrc) name=python:ansible-sysrc ;;
 		gh) name=github-cli ;;
-		py-*) name=`echo "$name" | sed "s/py-/python:/"` ;;
+		py-*) name=$(echo "$name" | sed "s/py-/python:/") ;;
 		tut) name=tut-mastodon-client ;;
 	esac
 
@@ -74,28 +74,28 @@ display_port_versions() {
 
 	echo_msg "===> Checking local git port version(s) with repology"
 	for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
-		port_name=`echo "$port" | cut -d/ -f 2`
-		port_local_version=`get_local_version "$port"`
-		port_remote_version=`get_remote_version "$port_name"`
-		port_check=`pkg version -t "$port_local_version" "$port_remote_version"`
-		
+		port_name=$(echo "$port" | cut -d/ -f 2)
+		port_local_version=$(get_local_version "$port")
+		port_remote_version=$(get_remote_version "$port_name")
+		port_check=$(pkg version -t "$port_local_version" "$port_remote_version")
+
 		case "$port_check" in
-			=)
+			"=")
 				echo_msg "=>> \e[32m$port is up-to-date\e[0m"
-				uptodate=$((uptodate+1))
+				uptodate=$((uptodate + 1))
 				;;
-			<)
+			"<")
 				echo_msg "=>> \e[33m$port $port_local_version is outdated by $port_remote_version\e[0m"
-				oudated=$((outdated+1))
-				PORT_LIST="$PORTS_LIST $port"
+				oudated=$((outdated + 1))
+				PORT_LIST="$PORT_LIST $port"
 				;;
-			>)
+			">")
 				echo_msg "=>> \e[36m$port $port_local_version is ahead of $port_remote_version\e[0m"
-				ahead=$((ahead+1))
+				ahead=$((ahead + 1))
 				;;
 		esac
 
-		counter=$((counter+1))
+		counter=$((counter + 1))
 	done
 	echo_msg "===> Finished checking $counter port version(s), OK: $uptodate, AHEAD: $ahead, OUTDATED: $outdated"
 }
