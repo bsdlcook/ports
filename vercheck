@@ -29,8 +29,7 @@ SHOW_OUTDATED_PORTS=
 while getopts :p flag; do
 	case "$flag" in
 		p) SHOW_OUTDATED_PORTS=1 ;;
-		h) usage ;;
-		\?) usage ;;
+		h|\?) usage ;;
 	esac
 done
 
