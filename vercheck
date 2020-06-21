@@ -1,73 +1,111 @@
 #!/bin/sh
 
-print_ports=false
-while getopts ":p" opts; do
-	case "${opts}" in
-		p) print_ports=true ;;
+usage() {
+	cat <<EOF
+usage: `basename $0` [options]
+
+Options:
+  -p		-- Show only outdated ports
+EOF
+	exit 0
+}
+
+#
+# Globals
+#
+REPOLOGY_BASE="https://repology.org"
+REPOLOGY_API_VERSION=1
+REPOLOGY_API="$REPOLOGY_BASE/api/v$REPOLOGY_API_VERSION"
+REPOLOGY_PROJECT="$REPOLOGY_API/project"
+
+#
+# Command-line options
+#
+SHOW_OUTDATED_PORTS=
+
+#
+# Parse command-line options
+#
+while getopts :p flag; do
+	case "$flag" in
+		p) SHOW_OUTDATED_PORTS=1 ;;
+		h) usage ;;
+		\?) usage ;;
 	esac
 done
 
+#
+# Echo out message if `-p` (list outdated ports) is not passed
+#
 echo_msg() {
-	if [ "${print_ports}" = false ]; then
+	if [ ! "$SHOW_OUTDATED_PORTS" ]; then
 		echo -e "$*"
 	fi
 }
 
-readonly REPOLOGY_BASE="https://repology.org"
-readonly REPOLOGY_API_VERSION=1
-readonly REPOLOGY_API="${REPOLOGY_BASE}/api/v${REPOLOGY_API_VERSION}"
-readonly REPOLOGY_PROJECT="${REPOLOGY_API}/project"
-
+#
+# Grep for local port version
+#
 get_local_version() {
-	grep -E "^(DIST)?VERSION=.*$" "$1/Makefile" | awk '{print $2}'
+	grep -E "^(DIST|PORT)?VERSION=.*$" "$1/Makefile" | awk '{print $2}'
 }
 
+#
+# Grab latest port version as reported on repology
+#
 get_remote_version() {
-	name="$1"
+	local name="$1"
 
-	case "${name}" in
+	case "$name" in
 		ansible-sysrc) name=python:ansible-sysrc ;;
 		gh) name=github-cli ;;
-		py-*) name=$(echo "${name}" | sed "s/py-/python:/") ;;
+		py-*) name=`echo "$name" | sed "s/py-/python:/"` ;;
 		tut) name=tut-mastodon-client ;;
 	esac
 
-	fetch -qo - "${REPOLOGY_PROJECT}/${name}" | jq -r '.[] | select(.repo == "freebsd") | .version'
+	fetch -qo - "$REPOLOGY_PROJECT/$name" | jq -r '.[] | select(.repo == "freebsd") | .version'
 }
 
 PORTS=
-COUNTER=0
-UPTODATE=0
-AHEAD=0
-OUTDATED=0
+PORTS_COUNTER=0
+PORTS_UPTODATE=0
+PORTS_AHEAD=0
+PORTS_OUTDATED=0
 
-echo_msg "===> Checking local git port version(s) with repology"
-for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
-	name=$(echo "${port}" | cut -d/ -f 2)
-	local_version=$(get_local_version "${port}")
-	remote_version=$(get_remote_version "${name}")
+#
+# Print port version status, as compared with latest on repology
+#
+display_port_versions() {
+	echo_msg "===> Checking local git port version(s) with repology"
+	for port in $(find . -type d -depth 2 -not -path "./.git/*" | cut -d/ -f 2,3 | sort); do
+		port_name=`echo "$port" | cut -d/ -f 2`
+		port_local_version=`get_local_version "$port"`
+		port_remote_version=`get_remote_version "$port_name"`
+		port_check=`pkg version -t "$port_local_version" "$port_remote_version"`
+		
+		case "$port_check" in
+			"=")
+				echo_msg "=>> \e[32m$port is up-to-date\e[0m"
+				PORTS_UPTODATE=$((PORTS_UPTODATE+1))
+				;;
+			"<")
+				echo_msg "=>> \e[33m$port $port_local_version is outdated by $port_remote_version\e[0m"
+				PORTS_OUTDATED=$((PORTS_OUTDATED+1))
+				PORTS="$PORTS $port"
+				;;
+			">")
+				echo_msg "=>> \e[36m$port $port_local_version is ahead of $port_remote_version\e[0m"
+				PORTS_AHEAD=$((PORTS_AHEAD+1))
+				;;
+		esac
 
-	check=$(pkg version -t "${local_version}" "${remote_version}")
-	case "${check}" in
-		"=")
-			echo_msg "=>> \e[32m${port} is up-to-date\e[0m"
-			UPTODATE=$((UPTODATE + 1))
-			;;
-		"<")
-			echo_msg "=>> \e[33m${port} ${local_version} is outdated by ${remote_version}\e[0m"
-			OUTDATED=$((OUTDATED + 1))
-			PORTS="${PORTS} ${port}"
-			;;
-		">")
-			echo_msg "=>> \e[36m${port} ${local_version} is ahead of ${remote_version}\e[0m"
-			AHEAD=$((AHEAD + 1))
-			;;
-	esac
+		PORTS_COUNTER=$((PORTS_COUNTER+1))
+	done
+	echo_msg "===> Finished checking $PORTS_COUNTER port version(s), OK: $PORTS_UPTODATE, AHEAD: $PORTS_AHEAD, OUTDATED: $PORTS_OUTDATED"
+}
 
-	COUNTER=$((COUNTER + 1))
-done
-echo_msg "===> Finished checking ${COUNTER} port version(s), OK: ${UPTODATE}, AHEAD: ${AHEAD}, OUTDATED: ${OUTDATED}"
+display_port_versions
 
-if [ "${print_ports}" = true ]; then
-	echo "${PORTS}"
+if [ "$SHOW_OUTDATED_PORTS" ]; then
+	echo "$PORTS"
 fi
