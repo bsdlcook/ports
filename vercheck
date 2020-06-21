@@ -28,8 +28,7 @@ get_remote_version() {
 	case "${name}" in
 		ansible-sysrc) name=python:ansible-sysrc ;;
 		gh) name=github-cli ;;
-		py-jc) name=python:jc ;;
-		py-tuir) name=python:tuir ;;
+		py-*) name=$(echo "${name}" | sed "s/py-/python:/") ;;
 		tut) name=tut-mastodon-client ;;
 	esac
 
