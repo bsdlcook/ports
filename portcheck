@@ -62,7 +62,7 @@ get_remote_version() {
 		tut) name=tut-mastodon-client ;;
 	esac
 
-	fetch -qo - "$REPOLOGY_PROJECT/$name" | jq -r '.[] | select(.repo == "freebsd") | .version'
+	fetch -qo - "$REPOLOGY_PROJECT/$name" | jq -r '.[] | select(.repo == "freebsd") | .version' | head -n1
 }
 
 PORT_LIST=
