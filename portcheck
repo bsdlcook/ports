@@ -46,7 +46,7 @@ echo_msg() {
 # Grep for local port version
 #
 get_local_version() {
-	grep -E "^(DIST|PORT)?VERSION=.*$" "$1/Makefile" | awk '{print $2}'
+	make -VPORTVERSION -C "$1"
 }
 
 #
