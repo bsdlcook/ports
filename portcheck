@@ -86,7 +86,7 @@ display_port_versions() {
 				;;
 			"<")
 				echo_msg "=>> \e[33m$port $port_local_version is outdated by $port_remote_version\e[0m"
-				oudated=$((outdated + 1))
+				outdated=$((outdated + 1))
 				PORT_LIST="$PORT_LIST $port"
 				;;
 			">")
