@@ -1,7 +1,7 @@
 # $FreeBSD$
 
 PORTNAME=	zen-sterm
-DISTVERSION=	0.8.1
+DISTVERSION=	0.8.4
 CATEGORIES=	x11
 
 MAINTAINER=	vulcan@wired.sh
@@ -11,8 +11,9 @@ LICENSE=	MIT
 LICENSE_FILE=	${WRKSRC}/../LICENSE
 
 LIB_DEPENDS=	libfontconfig.so:x11-fonts/fontconfig \
-		libfreetype.so:print/freetype2
-RUN_DEPENDS=	iosevka:x11-fonts/iosevka
+		libfreetype.so:print/freetype2 \
+		libharfbuzz.so:print/harfbuzz
+RUN_DEPENDS=	firacode:x11-fonts/firacode
 
 USES=		pkgconfig xorg
 
