@@ -5,7 +5,7 @@ DISTVERSIONPREFIX=	v
 DISTVERSION=	0.4.0
 CATEGORIES=	www
 
-MAINTAINER=	vulcan@wired.sh
+MAINTAINER=	lcook@FreeBSD.org
 COMMENT=	Flexible event/agent & automation system with lots of bees
 
 LICENSE=	AGPLv3
